@@ -1,9 +1,18 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 )
+
+type URLData struct {
+	OriginalURL string `json:"original_url"`
+	ShortURL    string `json:"short_url"`
+	ClickCount  int    `json:"click_count"`
+}
+
+var db *sql.DB
 
 func main() {
 	// API endpoints
